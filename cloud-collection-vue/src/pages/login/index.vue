@@ -24,18 +24,20 @@ export default {
   data() {
     return {
       form: {
-        username: '',
-        password: '',
+        username: "",
+        password: "",
       },
       rules: {
-        username: [{ required: true, message: '请输入与用户名', trigger: 'blur' }],
-        password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+        username: [
+          { required: true, message: "请输入与用户名", trigger: "blur" },
+        ],
+        password: [{ required: true, message: "请输入密码", trigger: "blur" }],
       },
     };
   },
   methods: {
     doLogin() {
-      console.log('点击了登录按钮', this.form);
+      console.log("点击了登录按钮", this.form);
     },
   },
 };
@@ -48,7 +50,20 @@ export default {
   }
 }
 
+.login-page {
+  width: 30%;
+  height: 250px;
+  margin: 200px auto;
+  position: relative;
+  border: 1px solid red;
+}
+
+.login-container {
+  position: relative;
+}
+
 .footer {
+  width: 200px;
 }
 </style>
 
