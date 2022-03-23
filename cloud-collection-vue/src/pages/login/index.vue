@@ -24,7 +24,7 @@
       </div>
       <div class="footer">
         <el-button type="primary" @click="doLogin">登录</el-button>
-        <el-button type="primary" size="mini">注册</el-button>
+        <el-button @click="toRegister" type="primary" size="mini">注册</el-button>
       </div>
     </div>
   </div>
@@ -59,6 +59,9 @@ export default {
       // let testPost = await testApi.testPost();
       // console.log('测试post请求', testPost);
     },
+    toRegister() {
+      this.$router.push('/register')
+    }
   },
 };
 </script>
@@ -80,7 +83,7 @@ export default {
     left: 50%;
     transform: translate(-50%, -50%);
     border-radius: 10px;
-    box-shadow: 1px 2px 2px 4px #c7c3c3 ;
+    box-shadow: 1px 2px 2px 4px #c7c3c3;
     .main {
       width: 300px;
       margin: 0 auto;
@@ -113,7 +116,7 @@ export default {
     }
     button:nth-child(2) {
       position: absolute;
-      top: 25px;
+      top: 20px;
       right: 30px;
     }
   }
