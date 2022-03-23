@@ -3,7 +3,7 @@ import VueRouter from 'vue-router';
 
 Vue.use(VueRouter);
 
-// 这是 路由 
+// 这是 路由
 const routes = [
   {
     path: '/login',
@@ -13,12 +13,12 @@ const routes = [
   {
     path: '/register',
     name: 'registerPage',
-    component: () => import('@/pages/register/index.vue')
-   },
-   {
-     path: '/demo/layout-demo',
-     component: () => import('@/pages/demos/layout-demo.vue')
-   }
+    component: () => import('@/pages/register/index.vue'),
+  },
+  {
+    path: '/demo/layout-demo',
+    component: () => import('@/pages/demos/layout-demo.vue'),
+  },
 ];
 
 const router = new VueRouter({
