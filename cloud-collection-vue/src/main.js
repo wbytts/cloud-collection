@@ -8,6 +8,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 
 Vue.config.productionTip = false;
 
+// ElementUI 完整引入
 Vue.use(ElementUI);
 
 new Vue({
