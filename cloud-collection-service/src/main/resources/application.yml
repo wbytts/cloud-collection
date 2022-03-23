@@ -13,7 +13,6 @@ spring:
     # min-idle: 5
     # initial-size: 5
 
-
 # mybatis-plus:
 #   #指明mapper.xml扫描位置(classpath* 代表编译后类文件根目录)
 #   mapper-locations: classpath*:xml/*.xml
