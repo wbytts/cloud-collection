@@ -35,7 +35,7 @@ export default {
   },
   methods: {
     doLogin() {
-      console.log('点击了登录按钮');
+      console.log('点击了登录按钮', this.form);
     },
   },
 };
