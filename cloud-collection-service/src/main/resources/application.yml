@@ -1,6 +1,6 @@
 
 server:
-  port: 9191
+  port: 9191 # 设置后端服务的端口
 
 spring:
   datasource: #数据源配置

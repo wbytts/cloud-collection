@@ -20,6 +20,8 @@
 </template>
 
 <script>
+import testApi from '@/api/test.js';
+
 export default {
   data() {
     return {
@@ -36,8 +38,15 @@ export default {
     };
   },
   methods: {
-    doLogin() {
+    async doLogin() {
       console.log("点击了登录按钮", this.form);
+      console.log('测试发请求');
+
+      let res = await testApi.hello();
+      console.log('接口返回的结果', res);
+
+      // let testPost = await testApi.testPost();
+      // console.log('测试post请求', testPost);
     },
   },
 };
