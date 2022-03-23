@@ -2,30 +2,32 @@ package com.by.ccs.controller;
 
 import com.by.ccs.mapper.TestMapper;
 import com.by.ccs.model.Test;
-import org.springframework.stereotype.Controller;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
 import java.util.List;
 
-@Controller
+@Api(tags = "测试Controller")
+@RestController
 public class HelloController {
 
     @Resource
     private TestMapper testMapper;
 
-    @RequestMapping("/hello")
-    @ResponseBody
+    @ApiOperation(value = "测试接口hello")
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
     public List<Test> hello() {
         List<Test> list = testMapper.queryAll();
         System.out.println(list);
         return list;
     }
 
+    @ApiOperation(value = "testPost")
     @RequestMapping(value = "/test-post", method = RequestMethod.POST)
-    @ResponseBody
     public String testPost() {
         return "测试post请求 - 12341237123";
     }
