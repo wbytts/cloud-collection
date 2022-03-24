@@ -1,6 +1,6 @@
 import Vue from 'vue';
 import App from './App.vue';
-import router from './router';
+import { createRouter } from './router';
 import store from './store';
 
 import ElementUI from 'element-ui';
@@ -10,6 +10,10 @@ Vue.config.productionTip = false;
 
 // ElementUI 完整引入
 Vue.use(ElementUI);
+
+// 创建路由对象
+const router = createRouter();
+Vue.$router = router;
 
 new Vue({
   router,
