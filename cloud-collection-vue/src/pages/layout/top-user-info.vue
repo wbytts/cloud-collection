@@ -1,19 +1,14 @@
 ﻿<template>
-  <div class="main-page-layout">
-
+  <div>
+    顶部用户信息操作区域
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {};
-  },
-  methods: {},
-};
+
+}
 </script>
 
 <style lang="scss" scoped>
 </style>
-
-

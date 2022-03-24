@@ -1,19 +1,14 @@
 ﻿<template>
-  <div class="main-page-layout">
-
+  <div>
+    主要页面头部组件
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {};
-  },
-  methods: {},
-};
+
+}
 </script>
 
 <style lang="scss" scoped>
 </style>
-
-
