@@ -1,19 +1,38 @@
 ﻿<template>
   <div class="main-page-layout">
-    <router-view></router-view>
+    <header class="top"></header>
+    <el-main>
+      <side-bar v-show="!$route.meta.noMenu"></side-bar>
+      <div class="right-pane">
+        <div class="router">
+          <router-view v-if="visible && !$route.query.keepAlive" :key="$route.name + $route.fullPath" />
+          <keep-alive v-else>
+            <router-view v-if="visible || $route.query.keepAlive" :key="$route.name + $route.fullPath" />
+          </keep-alive>
+        </div>
+      </div>
+    </el-main>
   </div>
 </template>
 
 <script>
+import SideBar from './side-bar.vue';
+
 export default {
+  components: { SideBar },
   data() {
-    return {};
+    return {
+      visible: true,
+    };
   },
   methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
+.main-page-layout {
+  
+}
 </style>
 
 

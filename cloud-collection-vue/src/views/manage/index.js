@@ -1,14 +1,14 @@
 ﻿import home from './home';
 
-const routes = [
+export default [
   {
     path: '/manage',
     name: 'manageLayout',
     component: () => import('@/pages/manageLayout'),
     children: [
-      ...home, // home 页面
+      ...home, // 管理端首页
     ],
   },
 ];
 
-export default routes;
+
