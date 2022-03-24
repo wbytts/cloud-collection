@@ -1,3 +1,3 @@
-﻿const routes = [];
+﻿import manage from './manage';
 
-export default routes;
+export default [...manage];
