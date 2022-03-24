@@ -18,40 +18,40 @@ VueRouter.prototype.push = function push(location, onResolve, onReject) {
 };
 
 // 路由递归加载方法
-const loadRoutes = (rous, paths, children) => {
-  if (rous !== null && 'path' in rous) {
+const loadRoutes = (routes, paths, children) => {
+  if (routes !== null && 'path' in routes) {
     let ps = paths.flat().filter(p => p);
 
-    if (ps[ps.length - 1] === rous.name) {
+    if (ps[ps.length - 1] === routes.name) {
       ps.splice(ps.length - 1, 1);
     }
     if (!children) {
       let filePs = ps.join('/');
 
-      if (rous.path) {
-        rous.path = (filePs ? '/' : '') + filePs + (rous.path[0] === '/' ? '' : '/') + rous.path;
+      if (routes.path) {
+        routes.path = (filePs ? '/' : '') + filePs + (routes.path[0] === '/' ? '' : '/') + routes.path;
       } else {
-        rous.path = filePs;
+        routes.path = filePs;
       }
     }
-    // rous.name = ps.concat([rous.name]).join('.');
-    if (rous.children) {
-      rous.children.forEach(child => {
+    // routes.name = ps.concat([routes.name]).join('.');
+    if (routes.children) {
+      routes.children.forEach(child => {
         loadRoutes(child, [paths, child.name], true);
       });
-      return [rous];
+      return [routes];
     }
-    return [rous];
+    return [routes];
   }
 
-  if (rous.length) {
-    return rous.map(r => {
+  if (routes.length) {
+    return routes.map(r => {
       return loadRoutes(r, [paths]);
     });
   } else {
     let arr = [];
-    for (let k in rous) {
-      arr = arr.concat(loadRoutes(rous[k], [paths, k]));
+    for (let k in routes) {
+      arr = arr.concat(loadRoutes(routes[k], [paths, k]));
     }
     return arr;
   }
