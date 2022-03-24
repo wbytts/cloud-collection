@@ -130,6 +130,7 @@ export default {
   box-shadow: 1px 2px 2px 4px #c7c3c3;
   width: 30%;
   height: 400px;
+
 }
 
 .main {

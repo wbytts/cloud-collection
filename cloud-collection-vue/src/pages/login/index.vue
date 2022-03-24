@@ -1,125 +1,134 @@
-﻿<template>
-  <div class="login-page">
-    <div class="login-container">
-      <div class="head"></div>
+﻿ <template>
+  <div class="bcg">
+    <div class="top">
+      <div class="content">LOGO</div>
+      <div class="come">欢迎来到云收藏</div>
       <div class="main">
-        <el-form :model="form" :rules="rules">
-          <el-form-item prop="username">
-            <el-input v-model="form.username" class="login-input"></el-input>
-            <template #label>
-              <div class="login-form-label">用户名</div>
-            </template>
-          </el-form-item>
-          <el-form-item prop="password">
-            <el-input
-              v-model="form.password"
-              type="password"
-              class="login-input"
-            ></el-input>
-            <template #label>
-              <div class="login-form-label">密码</div>
-            </template>
-          </el-form-item>
-        </el-form>
-      </div>
-      <div class="footer">
-        <el-button type="primary" @click="doLogin">登录</el-button>
-        <el-button @click="toRegister" type="primary" size="mini">注册</el-button>
+        <div class="main1">
+          <el-input  prefix-icon="el-icon-user-solid" v-model="input" placeholder="请输入账号"></el-input>
+          <el-input   prefix-icon="el-icon-lock" placeholder="请输入密码" v-model="input" show-password></el-input>
+          <div class="number">
+            <el-input  v-model="input" placeholder="输入验证码"></el-input>
+            <el-button type="primary">验证码</el-button>
+          </div>
+          <el-button type="primary">登陆</el-button>
+          <div class="footr">
+            <span><i class="el-icon-circle-check"></i>记住密码</span>
+            <a @click="toRegiste()">注册</a>
+            <a>忘记密码</a>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
+ 
 <script>
-import testApi from "@/api/test.js";
+import testApi from '@/api/test.js';
 
 export default {
   data() {
     return {
-      form: {
-        username: "",
-        password: "",
-      },
-      rules: {
-        username: [
-          { required: true, message: "请输入与用户名", trigger: "blur" },
-        ],
-        password: [{ required: true, message: "请输入密码", trigger: "blur" }],
-      },
-    };
+      input: ''
+
+    }
+
   },
   methods: {
     async doLogin() {
-      console.log("点击了登录按钮", this.form);
-      console.log("测试发请求");
+      console.log('点击了登录按钮', this.form);
+      console.log('测试发请求');
 
       let res = await testApi.hello();
-      console.log("接口返回的结果", res);
+      console.log('接口返回的结果', res);
 
       // let testPost = await testApi.testPost();
       // console.log('测试post请求', testPost);
     },
     toRegister() {
-      this.$router.push('/register')
-    }
+      this.$router.push('/register');
+    },
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.login-page {
-  margin: 200px auto;
-  position: relative;
+@import '~@/styles/mixin.scss';
+.bcg {
+  background: url(../../assets/images/manageMenuIcon/001bcg.webp) no-repeat;
+  background-size: 100% 100%;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+}
 
-  .head {
-    display: inline-block;
-    text-align: justify;
-  }
-  .login-container {
-    width: 500px;
-    height: 250px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    border-radius: 10px;
-    box-shadow: 1px 2px 2px 4px #c7c3c3;
-    .main {
-      width: 300px;
-      margin: 0 auto;
-      ::v-deep .el-form-item__label {
-        display: inline-block;
-        text-align: justify;
-      }
-      .login-form-label {
-        display: inline-block;
-        width: 4em; // 初始给四个字的宽度
-        text-align: justify;
-        i {
-          display: inline-block;
-          width: 100%;
-        }
-      }
-      .login-input {
-        display: inline-block;
-        width: 200px;
-      }
-    }
-  }
-  .footer {
-    position: relative;
-    button:nth-child(1) {
-      position: absolute;
-      top: 20px;
-      left: 30px;
-      width: 40%;
-    }
-    button:nth-child(2) {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-    }
-  }
+.top {
+  width: 30%;
+  height: 350px;
+  background-color: rgba(49, 34, 116, 0.2);
+  @include abs-center;
+  box-shadow: 1px 1px 2px 4px #c7c3c3;
+}
+
+.content {
+  font-size: 50px;
+  color: rgb(7, 42, 240);
+  text-align: center;
+  margin-top: 5px;
+}
+
+.come {
+  color: white;
+  font-size: 10px;
+  text-align: center;
+}
+
+.main1 {
+  height: 200px;
+  width: 60%;
+  margin: 0 auto;
+  margin-top: 20px;
+}
+.main1 .el-input {
+  margin-top: 10px;
+  display: block;
+} 
+
+.el-button {
+  margin-top: 10px;
+  width: 100%;
+}
+
+.number {
+  position: relative;
+}
+
+.number .el-input {
+  width: 50%;
+}
+
+.number .el-button {
+  position: absolute;
+  width: 35%;
+  right: 0px;
+  top: -10px;
+}
+
+.footr {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 10px;
+  color: white;
+}
+
+.footr a:active {
+  color: rgb(33, 25, 139);
+} 
+
+.footr a {
+  cursor: pointer;
 }
 </style>
 
