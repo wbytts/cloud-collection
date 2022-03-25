@@ -46,6 +46,9 @@ public class User {
      */
     private Integer status;
 
+    /**
+     * 创建者id
+     */
     private Long createId;
     /**
      * —创建时间
