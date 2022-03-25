@@ -12,9 +12,15 @@ spring:
     pathmatch:
       matching-strategy: ANT_PATH_MATCHER
 
-  mybatis-plus:
-    configuration:
-      log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启SQL语句打印
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl #开启SQL语句打印
+
+jwt:
+  header: "Authorization" #token返回头部
+  tokenPrefix: "Bearer " #token前缀
+  secret: "qwertyuiop7418520" #密钥
+  expireTime: 9999999 #token有效时间 (分钟) 建议一小时以上
 
 # mybatis-plus:
 #   #指明mapper.xml扫描位置(classpath* 代表编译后类文件根目录)

@@ -14,10 +14,18 @@ public class UserService {
     @Resource
     private UserMapper userMapper;
 
-    public List<User> queryAllUser() {
+    public List<User> queryAllUser() {    //验证用户
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         List<User> users = userMapper.selectList(wrapper);
         return users;
+    }
+
+    public  User queryByUsername(String username){
+        // List <User> userList = userMapper.queryByUsername(username);
+        QueryWrapper<User> wrapper = new QueryWrapper<>();
+        wrapper.eq("user_name", username);
+        User user = userMapper.selectOne(wrapper);
+        return user;
     }
     
 }
