@@ -22,12 +22,13 @@
       </el-table-column>
     </el-table>
 
-
-    <el-dialog :visible.sync="editDialogVisible" title="用户编辑"
-               width="500px"
-               class="edit-user"
-               @close="editDialogVisible = false">
-
+    <el-dialog
+      :visible.sync="editDialogVisible"
+      title="用户编辑"
+      width="500px"
+      class="edit-user"
+      @close="editDialogVisible = false"
+    >
       <div class="main">
         <el-form :model="currentEditUser">
           <el-form-item prop="id" label="用户id" label-width="100px">
@@ -36,6 +37,7 @@
           <el-form-item prop="userName" label="昵称" label-width="100px" required>
             <el-input v-model="currentEditUser.userName" size="mini"></el-input>
           </el-form-item>
+          <el-form-item></el-form-item>
         </el-form>
       </div>
 
@@ -48,28 +50,28 @@
 </template>
 
 <script>
-import userApi from '@/api/user.js'
+import userApi from '@/api/user.js';
 
 export default {
   data() {
     return {
       tableData: [],
       editDialogVisible: false,
-      currentEditUser: {}
-    }
+      currentEditUser: {},
+    };
   },
   methods: {
     // 打开编辑对话框
     openEditDialog(row) {
-      this.currentEditUser = row
+      this.currentEditUser = row;
       this.editDialogVisible = true;
-    }
+    },
   },
   async mounted() {
     let users = await userApi.queryAllUser();
     this.tableData = users;
-  }
-}
+  },
+};
 </script>
 
 
