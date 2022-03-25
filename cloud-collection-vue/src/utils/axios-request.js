@@ -1,5 +1,7 @@
 ﻿import axios from 'axios';
 
+
+
 // 创建通用的axios对象，发送请求
 const service = axios.create({
   baseURL: '/api',
@@ -9,6 +11,7 @@ const service = axios.create({
 // 设置 service 的请求拦截器
 service.interceptors.request.use(
   config => {
+    config['token'] = localStorage.getItem('token')
     return config;
   },
   error => {

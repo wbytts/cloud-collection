@@ -1,13 +1,21 @@
-﻿ <template>
+﻿<template>
   <div class="bcg">
     <div class="top">
       <div class="content">LOGO</div>
       <div class="come">欢迎来到云收藏</div>
       <div class="main">
         <div class="main1">
-          <el-input prefix-icon="el-icon-user-solid" v-model="input" placeholder="请输入账号"></el-input>
-          <el-input prefix-icon="el-icon-lock" placeholder="请输入密码" v-model="input" show-password></el-input>
-          <el-button type="primary">登陆</el-button>
+          <el-form :model="form" :rules="rules">
+            <el-form-item prop="username">
+              <el-input prefix-icon="el-icon-user-solid" v-model="form.username" placeholder="请输入账号"></el-input>
+            </el-form-item>
+            <el-form-item prop="password">
+              <el-input prefix-icon="el-icon-lock" type="password" placeholder="请输入密码"
+                        v-model="form.password"
+                        show-password></el-input>
+            </el-form-item>
+          </el-form>
+          <el-button type="primary" @click="doLogin">登陆</el-button>
           <div class="footer">
             <span><i class="el-icon-circle-check"></i>记住密码</span>
             <a @click="toRegiste()">注册</a>
@@ -19,26 +27,28 @@
   </div>
 </template>
 
- 
+
 <script>
-import testApi from '@/api/test.js';
+import loginApi from '@/api/login.js';
 
 export default {
   data() {
     return {
-      input: '',
+      form: {
+        username: '',
+        password: '',
+      },
+      rules: {
+        username: [{required: true, message: '请输入用户名', trigger: 'blur'}],
+        password: [{required: true, message: '请输入密码', trigger: 'blur'}],
+      },
     };
   },
   methods: {
     async doLogin() {
-      console.log('点击了登录按钮', this.form);
-      console.log('测试发请求');
-
-      let res = await testApi.hello();
-      console.log('接口返回的结果', res);
-
-      // let testPost = await testApi.testPost();
-      // console.log('测试post请求', testPost);
+      let res = await loginApi.login(this.form);
+      console.log('登录结果', res)
+      localStorage.setItem('token', res)
     },
     toRegister() {
       this.$router.push('/register');
@@ -49,6 +59,7 @@ export default {
 
 <style lang="scss" scoped>
 @import '~@/styles/mixin.scss';
+
 .bcg {
   background: url(../../assets/images/manageMenuIcon/001bcg.webp) no-repeat;
   background-size: 100% 100%;
@@ -76,7 +87,7 @@ export default {
 .come {
   font-size: 2px;
   text-align: center;
-  text-shadow: 5px 5px 5px black, 0px 0px 2px black;
+  text-shadow: 5px 5px 5px black, 0 0 2px black;
   color: white;
 }
 
@@ -86,6 +97,7 @@ export default {
   margin: 0 auto;
   margin-top: 30px;
 }
+
 .main1 .el-input {
   margin-top: 10px;
   display: block;
@@ -102,15 +114,22 @@ export default {
   justify-content: space-between;
   margin-top: 20px;
   color: white;
+
+  a {
+    cursor: pointer;
+
+    &:active {
+      color: rgb(33, 25, 139);
+    }
+  }
 }
 
-.footr a:active {
-  color: rgb(33, 25, 139);
+::v-deep {
+  .el-form-item {
+    margin-bottom: 10px;
+  }
 }
 
-.footr a {
-  cursor: pointer;
-}
 </style>
 
 
