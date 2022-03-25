@@ -14,8 +14,12 @@
     component: () => import('@/pages/demos/layout-demo.vue'),
   },
   {
-    path: '/demo/api-test',
-    component: () => import('@/pages/demos/api-test.vue')
+    path: '/demo/test-api',
+    component: () => import('@/pages/demos/test-api.vue')
+  },
+  {
+    path: '/demo/user-manage',
+    component: () => import('@/pages/demos/user-manage.vue')
   }
 ];
 

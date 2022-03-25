@@ -1,12 +1,14 @@
 ﻿import service from '@/utils/axios-request.js';
 
 export default {
-    hello() {
-        return service.get('/hello');
-    },
-    testPost() {
-        return service.post('/test-post');
-    }
+  hello() {
+    // get请求写法
+    return service.get('/hello');
+  },
+  testPost() {
+    // post 请求写法
+    return service.post('/test-post');
+  }
 }
 
 
