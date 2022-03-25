@@ -6,7 +6,7 @@
       <div class="main">
         <div class="main1">
           <el-input prefix-icon="el-icon-user-solid" v-model="input" placeholder="请输入账号"></el-input>
-          <el-input prefix-icon="el-icon-lock" placeholder="请输入密码" v-model="input" show-password></el-input>
+          <el-input prefix-icon="el-icon-lock" placeholder="请输入密码" v-model="password" show-password></el-input>
           <el-button type="primary">登陆</el-button>
           <div class="footer">
             <span><i class="el-icon-circle-check"></i>记住密码</span>
@@ -27,6 +27,7 @@ export default {
   data() {
     return {
       input: '',
+      password: '',
     };
   },
   methods: {
