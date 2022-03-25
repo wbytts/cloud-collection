@@ -5,14 +5,10 @@
       <div class="come">欢迎来到云收藏</div>
       <div class="main">
         <div class="main1">
-          <el-input  prefix-icon="el-icon-user-solid" v-model="input" placeholder="请输入账号"></el-input>
-          <el-input   prefix-icon="el-icon-lock" placeholder="请输入密码" v-model="input" show-password></el-input>
-          <div class="number">
-            <el-input  v-model="input" placeholder="输入验证码"></el-input>
-            <el-button type="primary">验证码</el-button>
-          </div>
+          <el-input prefix-icon="el-icon-user-solid" v-model="input" placeholder="请输入账号"></el-input>
+          <el-input prefix-icon="el-icon-lock" placeholder="请输入密码" v-model="input" show-password></el-input>
           <el-button type="primary">登陆</el-button>
-          <div class="footr">
+          <div class="footer">
             <span><i class="el-icon-circle-check"></i>记住密码</span>
             <a @click="toRegiste()">注册</a>
             <a>忘记密码</a>
@@ -30,10 +26,8 @@ import testApi from '@/api/test.js';
 export default {
   data() {
     return {
-      input: ''
-
-    }
-
+      input: '',
+    };
   },
   methods: {
     async doLogin() {
@@ -64,68 +58,55 @@ export default {
 }
 
 .top {
-  width: 30%;
-  height: 350px;
+  width: 28%;
+  height: 320px;
   background-color: rgba(49, 34, 116, 0.2);
   @include abs-center;
-  box-shadow: 1px 1px 2px 4px #c7c3c3;
+  box-shadow: 1px 1px 2px 4px #060692;
 }
 
 .content {
   font-size: 50px;
-  color: rgb(7, 42, 240);
   text-align: center;
   margin-top: 5px;
+  text-shadow: #ff0000 0 0 10px;
+  color: white;
 }
 
 .come {
-  color: white;
-  font-size: 10px;
+  font-size: 2px;
   text-align: center;
+  text-shadow: 5px 5px 5px black, 0px 0px 2px black;
+  color: white;
 }
 
 .main1 {
   height: 200px;
   width: 60%;
   margin: 0 auto;
-  margin-top: 20px;
+  margin-top: 30px;
 }
 .main1 .el-input {
   margin-top: 10px;
   display: block;
-} 
+}
 
 .el-button {
   margin-top: 10px;
   width: 100%;
 }
 
-.number {
-  position: relative;
-}
-
-.number .el-input {
-  width: 50%;
-}
-
-.number .el-button {
-  position: absolute;
-  width: 35%;
-  right: 0px;
-  top: -10px;
-}
-
-.footr {
+.footer {
   display: flex;
   width: 100%;
   justify-content: space-between;
-  margin-top: 10px;
+  margin-top: 20px;
   color: white;
 }
 
 .footr a:active {
   color: rgb(33, 25, 139);
-} 
+}
 
 .footr a {
   cursor: pointer;
