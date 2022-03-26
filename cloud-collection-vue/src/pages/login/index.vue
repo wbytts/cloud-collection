@@ -10,14 +10,18 @@
               <el-input prefix-icon="el-icon-user-solid" v-model="form.username" placeholder="请输入账号"></el-input>
             </el-form-item>
             <el-form-item prop="password">
-              <el-input prefix-icon="el-icon-lock" type="password" placeholder="请输入密码"
-                        v-model="form.password"
-                        show-password></el-input>
+              <el-input
+                prefix-icon="el-icon-lock"
+                type="password"
+                placeholder="请输入密码"
+                v-model="form.password"
+                show-password
+              ></el-input>
             </el-form-item>
           </el-form>
           <el-button type="primary" @click="doLogin">登陆</el-button>
           <div class="footer">
-            <span><i class="el-icon-circle-check"></i>记住密码</span>
+            <span><input type="checkbox" id="remember" /><label for="remember">记住我</label></span>
             <a @click="toRegiste()">注册</a>
             <a>忘记密码</a>
           </div>
@@ -39,16 +43,16 @@ export default {
         password: '',
       },
       rules: {
-        username: [{required: true, message: '请输入用户名', trigger: 'blur'}],
-        password: [{required: true, message: '请输入密码', trigger: 'blur'}],
+        username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
+        password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
       },
     };
   },
   methods: {
     async doLogin() {
       let res = await loginApi.login(this.form);
-      console.log('登录结果', res)
-      localStorage.setItem('token', res)
+      console.log('登录结果', res);
+      localStorage.setItem('token', res);
     },
     toRegister() {
       this.$router.push('/register');
@@ -61,7 +65,7 @@ export default {
 @import '~@/styles/mixin.scss';
 
 .bcg {
-  background: url(../../assets/images/manageMenuIcon/001bcg.webp) no-repeat;
+  background: url(../../assets/images/manageMenuIcon/003bcg.webp) no-repeat;
   background-size: 100% 100%;
   width: 100%;
   height: 100%;
@@ -70,10 +74,10 @@ export default {
 
 .top {
   width: 28%;
-  height: 320px;
-  background-color: rgba(49, 34, 116, 0.2);
+  height: 350px;
+  // background-color: #fff;
   @include abs-center;
-  box-shadow: 1px 1px 2px 4px #060692;
+  box-shadow: 1px 1px 2px 4px #dedee7;
 }
 
 .content {
@@ -113,7 +117,7 @@ export default {
   width: 100%;
   justify-content: space-between;
   margin-top: 20px;
-  color: white;
+  color: rgb(12, 12, 12);
 
   a {
     cursor: pointer;
@@ -129,7 +133,6 @@ export default {
     margin-bottom: 10px;
   }
 }
-
 </style>
 
 
