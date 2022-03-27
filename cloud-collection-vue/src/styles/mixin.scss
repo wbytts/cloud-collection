@@ -1,8 +1,21 @@
-
 // 绝对定位 + 上下居中 + 左右居中
 @mixin abs-center {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+// 绝对定位 ~ 左右居中
+@mixin abs-x-center {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+// 绝对定位 ~ 上下居中
+@mixin abs-y-center {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
 }
