@@ -1,5 +1,5 @@
 ﻿<template>
-  <div>
+  <div class="side-bar">
     <template v-if="!item.children">
       <el-menu-item :index="item.menuId">
         <img :src="imageUrl(item)" v-if="hasImage(item)" />
@@ -37,5 +37,6 @@ export default {
 };
 </script>
 
-<style>
+<style lang="scss" scoped>
+
 </style>

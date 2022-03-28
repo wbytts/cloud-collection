@@ -1,8 +1,8 @@
 ﻿<template>
   <div class="main-page-layout">
     <header class="top"></header>
-    <el-main>
-      <side-bar v-show="!$route.meta.noMenu"></side-bar>
+    <div class="main-content">
+      <side-bar class="side-bar" v-show="!$route.meta.noMenu"></side-bar>
       <div class="right-pane">
         <div class="router">
           <router-view v-if="visible && !$route.query.keepAlive" :key="$route.name + $route.fullPath" />
@@ -11,7 +11,7 @@
           </keep-alive>
         </div>
       </div>
-    </el-main>
+    </div>
   </div>
 </template>
 
@@ -31,7 +31,15 @@ export default {
 
 <style lang="scss" scoped>
 .main-page-layout {
-  
+  .main-content {
+    border: 1px solid #ccc;
+    .side-bar {
+      border: 1px solid #ccc;
+    }
+    .right-pane {
+      border: 1px solid #ccc;
+    }
+  }
 }
 </style>
 
