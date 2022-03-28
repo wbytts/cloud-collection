@@ -23,4 +23,8 @@ new Vue({
   router,
   store,
   render: h => h(App),
+  beforeCreate() {
+    // 将根Vue实例作为全局事件总线
+    Vue.prototype.$bus = this;
+  },
 }).$mount('#app');
