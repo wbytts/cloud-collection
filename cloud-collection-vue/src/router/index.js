@@ -71,6 +71,15 @@ export function createRouter() {
 
   // 路由守卫（跳转前）
   router.beforeEach(async (to, from, next) => {
+    const token = localStorage.getItem('token') // 获取token
+    // 如果没登陆，并且要去的地方不是登陆页面，则强制跳转到登陆页面
+    // 这里暂时用一下，后期测试页面也要加进来，可能还有其它的
+    if(!token && to.name != 'loginPage') { // 如果没有token，表示用户未登录，则强制跳转到登陆页面
+      next('/login')
+      return;
+    } 
+
+    // 如果不是以上情形，则默认跳转
     next();
   });
   // 路由守卫（跳转后）

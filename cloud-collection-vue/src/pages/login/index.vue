@@ -43,10 +43,14 @@ export default {
         password: '',
       },
       rules: {
-        username: [{ required: true, message: '请输入用户名', trigger: 'blur' },
-                    { min: 6, max: 12, message: '长度在6到12位', trigger: 'blur' }],
-        password: [{ required: true, message: '请输入密码', trigger: 'blur' },
-                    { min: 6, max: 10, message: '长度在6到10位', trigger: 'blur' }],
+        username: [
+          { required: true, message: '请输入用户名', trigger: 'blur' },
+          { min: 6, max: 12, message: '长度在6到12位', trigger: 'blur' },
+        ],
+        password: [
+          { required: true, message: '请输入密码', trigger: 'blur' },
+          { min: 6, max: 10, message: '长度在6到10位', trigger: 'blur' },
+        ],
       },
     };
   },
@@ -54,7 +58,14 @@ export default {
     async doLogin() {
       let res = await loginApi.login(this.form);
       console.log('登录结果', res);
-      localStorage.setItem('token', res);
+      if (res.result) {
+        localStorage.setItem('token', res.data);
+        this.$message.success(res.message);
+        // 登陆成功之后，跳转管理页面首页
+        this.$router.push({name: 'manageHome'})
+      } else {
+        this.$message.error(res.message);
+      }
     },
     toRegister() {
       this.$router.push('/register');
