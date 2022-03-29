@@ -20,15 +20,36 @@ public class LoginController {
     private UserService userService;
 
     @PostMapping("/login")
-    public String login(@RequestBody Map<String, String> params) throws JsonProcessingException {
+    public Map<String, Object> login(@RequestBody Map<String, String> params) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
-        HashMap<Object, Object> map = new HashMap<>();
+        // 定义一个map存放最终返回给前端的结果
+        Map<String, Object> result = new HashMap<>();
+
         // 通过 username 从数据库中查询到 User 对象
         User user = userService.queryByUsername(params.get("username"));
-        map.put("userId", user.getId());
-        String json = mapper.writeValueAsString(map);
-        String token = JwtUtil.createToken(json);
-        return token;
+        if(user == null) {
+            result.put("result", false);
+            result.put("message", "用户名不存在");
+            result.put("data", null);
+        } else {
+            // 如果用户名存在，则判断密码是否正确
+            if(user.getPassword().equals(params.get("password"))) {
+                // 如果密码验证成功，则生成token并返回
+                HashMap<Object, Object> map = new HashMap<>();
+                map.put("userId", user.getId());
+                String json = mapper.writeValueAsString(map);
+                String token = JwtUtil.createToken(json);
+                result.put("result", true);
+                result.put("message", "登陆成功");
+                result.put("data", token);
+            } else {
+                result.put("result", false);
+                result.put("message", "密码错误");
+                result.put("data", null);
+            }
+        }
+
+        return result;
     }
 
     @PostMapping("/getTokenInfo")
