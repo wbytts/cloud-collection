@@ -26,7 +26,6 @@
           </div>
           <el-form-item class="bottom">
             <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
-
             <el-button @click="resetForm('ruleForm')">重置</el-button>
           </el-form-item>
         </el-form>
@@ -59,7 +58,7 @@ export default {
 @import '~@/styles/mixin.scss';
 
 .bcg {
-  background: url(../../assets/images/manageMenuIcon/002bcg.webp) no-repeat;
+  background: url(@/assets/images/manageMenuIcon/002bcg.webp) no-repeat;
   background-size: 100% 100%;
   width: 100%;
   height: 100%;

@@ -43,8 +43,10 @@ export default {
         password: '',
       },
       rules: {
-        username: [{ required: true, message: '请输入用户名', trigger: 'blur' }],
-        password: [{ required: true, message: '请输入密码', trigger: 'blur' }],
+        username: [{ required: true, message: '请输入用户名', trigger: 'blur' },
+                    { min: 6, max: 12, message: '长度在6到12位', trigger: 'blur' }],
+        password: [{ required: true, message: '请输入密码', trigger: 'blur' },
+                    { min: 6, max: 10, message: '长度在6到10位', trigger: 'blur' }],
       },
     };
   },
@@ -65,7 +67,7 @@ export default {
 @import '~@/styles/mixin.scss';
 
 .bcg {
-  background: url(../../assets/images/manageMenuIcon/003bcg.webp) no-repeat;
+  background: url(@/assets/images/manageMenuIcon/003bcg.webp) no-repeat;
   background-size: 100% 100%;
   width: 100%;
   height: 100%;
