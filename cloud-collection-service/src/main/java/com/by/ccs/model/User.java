@@ -24,7 +24,7 @@ public class User {
     /**
      * —头像（登记过就显示）
      */
-    private String avataUrl;
+    private String avatarUrl; // 那个后端的朋友粗心了哈哈
     /**
      * —性别（1=男，2=女)
      */
