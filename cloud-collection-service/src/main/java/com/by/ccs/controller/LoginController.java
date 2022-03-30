@@ -32,13 +32,12 @@ public class LoginController {
         @ApiResponse(code = 200, message = "登录成功！"),
         @ApiResponse(code = 500, message = "登录失败！")
     })
-
     @PostMapping("/login")
-    public Map<String, Object> login(@RequestParam String username, @RequestParam String password) throws JsonProcessingException {
+    public Map<String, Object> login(@RequestParam String username,
+                                     @RequestParam String password) throws JsonProcessingException {
         ObjectMapper mapper = new ObjectMapper();
         // 定义一个map存放最终返回给前端的结果
         Map<String, Object> result = new HashMap<>();
-
         // 通过 username 从数据库中查询到 User 对象
         User user = userService.queryByUsername(username);
         if (user == null) {

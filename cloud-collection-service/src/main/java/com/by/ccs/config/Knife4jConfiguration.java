@@ -10,7 +10,8 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 
 /**
- * @author wangjiahao
+ * http://127.0.0.1:后端端口/doc.html
+ * @author 豪哥
  * @since 2022/3/23 8:51 下午
  */
 @Configuration

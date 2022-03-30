@@ -11,7 +11,7 @@ const service = axios.create({
 // 设置 service 的请求拦截器
 service.interceptors.request.use(
   config => {
-    config['token'] = localStorage.getItem('token')
+    config.headers['token'] = localStorage.getItem('token')
     return config;
   },
   error => {
