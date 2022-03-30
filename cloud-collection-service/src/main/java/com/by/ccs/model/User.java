@@ -1,64 +1,55 @@
 package com.by.ccs.model;
 
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
+
+@ApiModel(value = "用户实体类", description = "用户信息描述类")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
 public class User {
-    /**
-     * 用户id
-     */
+    @ApiModelProperty(value = "用户id")
     private String id;
-    /**
-     * —昵称
-     */
+
+    @ApiModelProperty(value = "昵称")
     private String userName;
-    /**
-     * —账号
-     */
+
+    @ApiModelProperty(value = "账号")
     private String loginName;
-    /**
-     * —头像（登记过就显示）
-     */
+
+    @ApiModelProperty(value = "头像")
     private String avatarUrl; // 那个后端的朋友粗心了哈哈
-    /**
-     * —性别（1=男，2=女)
-     */
+
+    @ApiModelProperty(value = "性别 1=男，2=女)")
     private Integer gender;
-    /**
-     * —密码
-     */
+
+    @ApiModelProperty(value = "密码")
     private String password;
-    /**
-     * —电话
-     */
+
+    @ApiModelProperty(value = "电话")
     private String phone;
-    /**
-     * —邮箱(账号框可用）
-     */
+
+    @ApiModelProperty(value = "邮箱(账号框可用）")
     private String email;
-    /**
-     * —封禁
-     */
+
+    @ApiModelProperty(value = "用户状态")
     private Integer status;
 
-    /**
-     * 创建者id
-     */
+    @ApiModelProperty(value = "创建者id")
     private Long createId;
-    /**
-     * —创建时间
-     */
+
+    @ApiModelProperty(value = "创建时间")
     private Date createTime;
 
+    @ApiModelProperty(value = "修改id")
     private Long updateId;
-    /**
-     * —创新时间
-     */
+
+    @ApiModelProperty(value = "修改时间")
     private Date updateTime;
 
 }

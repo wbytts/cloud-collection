@@ -2,8 +2,10 @@ package com.by.ccs.controller;
 
 import com.by.ccs.mapper.TestMapper;
 import com.by.ccs.mapper.UserMapper;
-import com.by.ccs.model.Test;
+
 import com.by.ccs.model.User;
+import com.by.ccs.model.Test;
+import io.swagger.annotations.Api;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.annotation.Resource;
 import java.util.List;
 
+@Api(tags = "Hello测试用接口")
 @Controller
 public class HelloController {
 
