@@ -1,6 +1,6 @@
 ﻿<template>
   <div>
-    顶部用户信息操作区域
+    导航栏
   </div>
 </template>
 
@@ -10,5 +10,6 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style>
+
 </style>

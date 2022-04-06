@@ -1,25 +1,27 @@
 ﻿<template>
-  <div class="main-page-layout">
-    <header class="top"></header>
-    <div class="main-content">
-      <side-bar class="side-bar" v-show="!$route.meta.noMenu"></side-bar>
-      <div class="right-pane">
-        <div class="router">
-          <router-view v-if="visible && !$route.query.keepAlive" :key="$route.name + $route.fullPath" />
-          <keep-alive v-else>
-            <router-view v-if="visible || $route.query.keepAlive" :key="$route.name + $route.fullPath" />
-          </keep-alive>
-        </div>
+  <div class="manage-layout-wrapper">
+    <!-- 侧边栏 -->
+    <SideBar class="side-bar-container"></SideBar>
+    <!-- 主要页面 -->
+    <div class="manage-main-container">
+      <!-- 顶部 -->
+      <div class="manage-main-top">
+        <!-- 导航栏 -->
+        <NavBar></NavBar>
+        <!-- 标签栏 -->
+        <TagsView></TagsView>
       </div>
+      <!-- 页面主体 -->
+      <ManageMain></ManageMain>
     </div>
   </div>
 </template>
 
 <script>
-import SideBar from './side-bar.vue';
+import { SideBar, NavBar, TagsView, ManageMain } from './components';
 
 export default {
-  components: { SideBar },
+  components: { SideBar, NavBar, TagsView, ManageMain },
   data() {
     return {
       visible: true,
@@ -30,16 +32,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.main-page-layout {
-  .main-content {
-    border: 1px solid #ccc;
-    .side-bar {
-      border: 1px solid #ccc;
-    }
-    .right-pane {
-      border: 1px solid #ccc;
-    }
-  }
+.manage-layout-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
 }
 </style>
 

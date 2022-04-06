@@ -77,7 +77,7 @@ export function createRouter() {
     if(!token && to.name != 'loginPage') { // 如果没有token，表示用户未登录，则强制跳转到登陆页面
       next('/login')
       return;
-    } 
+    }
 
     // 如果不是以上情形，则默认跳转
     next();
