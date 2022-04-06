@@ -32,10 +32,65 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '~@/styles/variables.scss';
+
 .manage-layout-wrapper {
   position: relative;
   height: 100%;
   width: 100%;
+  margin-left: $side-bar-width !important;
+  min-height: 100%;
+  .side-bar-container {
+    width: $side-bar-width !important;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    background-color: $menu-bg;
+    overflow: hidden;
+    z-index: 1001;
+    .scrollbar-wrapper {
+      overflow-x: hidden !important;
+    }
+    ::v-deep {
+      .el-scrollbar__bar.is-vertical {
+        right: 0px;
+      }
+
+      .el-scrollbar {
+        height: 100%;
+      }
+
+      .el-menu {
+        border: none;
+        height: 100%;
+        width: 100% !important;
+      }
+
+      // menu hover
+      .submenu-title-noDropdown,
+      .el-submenu__title {
+        &:hover {
+          background-color: $menu-hover-bg !important;
+        }
+      }
+
+      .is-active > .el-submenu__title {
+        color: $sub-menu-active-text-color !important;
+      }
+
+      & .nest-menu .el-submenu > .el-submenu__title,
+      & .el-submenu .el-menu-item {
+        min-width: $side-bar-width !important;
+        background-color: $sub-menu-bg !important;
+
+        &:hover {
+          background-color: $sub-menu-hover-bg !important;
+        }
+      }
+    }
+  }
 }
 </style>
 
