@@ -14,6 +14,7 @@ router.get('/queryUserById', userController.queryUserById)
 
 // 临时接口测试
 router.get('/test', testController.index)
+router.get('/test/allUser', testController.findAllUser)
 
 
 export default router
