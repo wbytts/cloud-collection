@@ -1,6 +1,10 @@
 ﻿<template>
   <div class="manage-main">
-    <div class="manage-main-view"></div>
+    <!-- view内容区域 -->
+    <div class="manage-main-view">
+      <!-- manage二级路由视图 -->
+      <router-view></router-view>
+    </div>
   </div>
 </template>
 

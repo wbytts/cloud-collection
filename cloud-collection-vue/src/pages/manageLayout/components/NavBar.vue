@@ -1,5 +1,5 @@
 ﻿<template>
-  <div class="nav-bar">导航栏导航栏导航栏导航栏导航栏导航栏导航栏导航栏导航栏导航栏导航栏导航栏</div>
+  <div class="nav-bar">顶部~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div>
 </template>
 
 <script>
