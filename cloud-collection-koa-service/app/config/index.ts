@@ -1,17 +1,35 @@
 ﻿import dotenv from 'dotenv';
-import log from './log';
-import db from './db';
-import jwt from './jwt';
-import server from './server';
 
 dotenv.config();
 
 const config = {
   env: process.env.NODE_ENV,
-  server, // 服务配置
-  db, // 数据库配置
-  log, // 日志配置
-  jwt, // jwt配置
+  server: {
+    port: process.env.SERVER_PORT,
+  },
+  db: {
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    name: process.env.DB_NAME,
+    username: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+  },
+  log: {
+    appenders: {
+      default: { type: 'file', filename: './logs/default.log' },
+      common: { type: 'file', filename: './logs/common.log' },
+      access: { type: 'file', filename: './logs/access.log' },
+    },
+    categories: {
+      default: { appenders: ['default'], level: 'info' },
+      common: { appenders: ['common'], level: 'trace' },
+      access: { appenders: ['access'], level: 'info' },
+    },
+  },
+  jwt: {
+    secret: process.env.JWT_SECRET,
+    expire: process.env.JWT_EXPIRE,
+  },
 };
 
 export default config;
