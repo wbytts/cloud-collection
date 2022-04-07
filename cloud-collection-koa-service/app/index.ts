@@ -5,8 +5,8 @@ import accessLogMiddleware from './middleware/accessLogMiddleware'
 import authMiddleware from './middleware/authMiddleware'
 import authDB from './db'
 
-const app = new Koa()
-authDB()
+const app = new Koa() // 创建应用实例
+authDB() // 数据库初始化
 
 app
   .use(accessLogMiddleware) // 访问日志中间件

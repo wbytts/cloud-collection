@@ -16,7 +16,7 @@ export default {
    * @param msg 错误的描述
    * @param code 状态码
    */
-  error(ctx: Context, data: any = null, msg: string = 'error', code: number = 1) {
+  error(ctx: Context, data: any = null, msg: string = 'error', code: number = -1) {
     ctx.body = { code, msg, data }
   },
 }

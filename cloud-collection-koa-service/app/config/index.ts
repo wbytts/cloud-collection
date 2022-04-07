@@ -33,3 +33,10 @@ const config = {
 };
 
 export default config;
+
+// 路由白名单
+export const whiteList = [
+  '/admin/login', // 登录接口
+  '/admin/register', // 注册接口
+];
+

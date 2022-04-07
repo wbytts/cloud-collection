@@ -1,11 +1,6 @@
 ﻿import { Context, Next } from 'koa';
 import { verify } from '../utils/auth';
-import { accessLogger } from '../logger';
-
-const whiteList = [
-  '/admin/login', // 登录接口
-  '/admin/register', // 注册接口
-];
+import { whiteList } from '../config';
 
 /**
  * 权限过滤中间件
