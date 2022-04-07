@@ -1,13 +1,14 @@
-﻿import { Context, Next } from 'koa'
-import { accessLogger } from '../logger'
+﻿import { Context, Next } from 'koa';
+import { accessLogger } from '../logger';
 
 /**
  * 访问日志中间件
  */
 function accessLogMiddleware(ctx: Context, next: Next) {
-  const logStr = `path:${ctx.path} | method:${ctx.method} | ua:${ctx.headers['user-agent']}`
-  accessLogger.info(logStr)
-  return next()
+  // 访问的路由、访问的方法、查询参数、请求体参数
+  const logStr = `path: ${ctx.path} | method: ${ctx.method} | query: ${JSON.stringify(ctx.query)} | body: ${JSON.stringify(ctx.body || {})}`;
+  accessLogger.info(logStr);
+  return next();
 }
 
-export default accessLogMiddleware
+export default accessLogMiddleware;

@@ -3,7 +3,7 @@ import loginController from '../controller/loginController'
 import testController from '../controller/testController'
 import userController from '../controller/userController'
 
-const router = new KoaRouter({ prefix: '/' })
+const router = new KoaRouter({ prefix: '' })
 
 
 // 登录注册

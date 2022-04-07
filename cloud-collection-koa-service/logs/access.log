@@ -1,0 +1,2 @@
+[2022-04-07T15:07:18.727] [INFO] access - path: /test | method: GET | query: {"username":"asd"} | body: {}
+[2022-04-07T15:07:18.769] [INFO] access - path: /favicon.ico | method: GET | query: {} | body: {}

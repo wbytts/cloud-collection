@@ -1,11 +1,11 @@
-﻿import { run } from '../app';
+﻿import { runServe } from '../app';
 import { Server } from 'http';
 import request from 'supertest';
 describe('http', () => {
   let server: Server;
 
   beforeAll(() => {
-    server = run(30003);
+    server = runServe(30003);
   });
 
   it('GET /admin', () => {

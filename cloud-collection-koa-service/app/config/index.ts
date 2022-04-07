@@ -1,6 +1,6 @@
-﻿import dotenv from 'dotenv'
+﻿import dotenv from 'dotenv';
 
-dotenv.config()
+dotenv.config();
 
 const config = {
   env: process.env.NODE_ENV,
@@ -16,11 +16,13 @@ const config = {
   },
   log: {
     appenders: {
-      cheese: { type: 'file', filename: './logs/cheese.log' },
+      default: { type: 'file', filename: './logs/default.log' },
+      common: { type: 'file', filename: './logs/common.log' },
       access: { type: 'file', filename: './logs/access.log' },
     },
     categories: {
-      default: { appenders: ['cheese'], level: 'info' },
+      default: { appenders: ['default'], level: 'info' },
+      common: { appenders: ['common'], level: 'trace' },
       access: { appenders: ['access'], level: 'info' },
     },
   },
@@ -28,6 +30,6 @@ const config = {
     secret: process.env.JWT_SECRET,
     expire: process.env.JWT_EXPIRE,
   },
-}
+};
 
-export default config
+export default config;
