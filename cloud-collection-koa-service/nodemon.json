@@ -1,0 +1,6 @@
+﻿{
+  "watch": ["./index.ts", "./app/**/*.ts", "./utils/**.*"],
+  "ignore": ["node_modules"],
+  "exec": "ts-node ./index.ts",
+  "ext": "ts"
+}
