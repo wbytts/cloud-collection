@@ -1,5 +1,5 @@
 ﻿<template>
-  <div class="nav-bar">顶部~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~</div>
+  <div class="nav-bar">顶部~~~~可以放面包屑之类的组件</div>
 </template>
 
 <script>
