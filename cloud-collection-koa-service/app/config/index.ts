@@ -1,6 +1,6 @@
-﻿import dotenv from 'dotenv';
+﻿import dotenv from 'dotenv'
 
-dotenv.config();
+dotenv.config()
 
 const config = {
   env: process.env.NODE_ENV,
@@ -28,6 +28,6 @@ const config = {
     secret: process.env.JWT_SECRET,
     expire: process.env.JWT_EXPIRE,
   },
-};
+}
 
-export default config;
+export default config

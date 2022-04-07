@@ -1,10 +1,9 @@
 ﻿import { Model, Table, Column } from 'sequelize-typescript'
 
-@Table({ tableName: 'admin' })
-class Admin extends Model {
+@Table({ tableName: 'user' })
+class User extends Model {
   @Column({ primaryKey: true, autoIncrement: true })
   id!: number // 主键id
-
   @Column
   name!: string // 姓名
   @Column
@@ -17,4 +16,4 @@ class Admin extends Model {
   age!: number // 年龄
 }
 
-export default Admin
+export default User

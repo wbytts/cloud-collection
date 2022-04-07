@@ -1,10 +1,10 @@
-﻿import { Context } from 'koa';
-import makeResponse from '../utils/makeResponse';
+﻿import { Context } from 'koa'
+import responseUtil from '../utils/responseUtil'
 
 class ZczyController {
   async index(ctx: Context) {
-    makeResponse.success(ctx, {  });
+    responseUtil.success(ctx, {})
   }
 }
 
-export default new ZczyController();
+export default new ZczyController()

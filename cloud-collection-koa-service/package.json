@@ -11,7 +11,7 @@
   "author": "",
   "main": "index.ts",
   "scripts": {
-    "start": "ts-node ./index.ts",
+    "start": "nodemon",
     "test": "jest"
   },
   "jest": {

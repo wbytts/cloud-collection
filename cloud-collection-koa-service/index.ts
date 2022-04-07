@@ -1,4 +1,4 @@
-﻿import { run } from './app';
-import config from './app/config';
+﻿import { runServe } from './app'
+import config from './app/config'
 
-run(config.server.port || 8080);
+runServe(config.server.port || 8080)

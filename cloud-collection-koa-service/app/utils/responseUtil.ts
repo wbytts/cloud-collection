@@ -1,4 +1,4 @@
-﻿import { Context } from 'koa';
+﻿import { Context } from 'koa'
 
 export default {
   /**
@@ -8,7 +8,7 @@ export default {
    * @param code 状态码
    */
   success(ctx: Context, data: any = null, msg: string = 'success', code: number = 0) {
-    ctx.body = { code, msg, data };
+    ctx.body = { code, msg, data }
   },
   /**
    * @param ctx koa上下文
@@ -17,6 +17,6 @@ export default {
    * @param code 状态码
    */
   error(ctx: Context, data: any = null, msg: string = 'error', code: number = 1) {
-    ctx.body = { code, msg, data };
+    ctx.body = { code, msg, data }
   },
-};
+}
