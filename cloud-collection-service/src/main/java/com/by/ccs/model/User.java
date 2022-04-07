@@ -1,5 +1,7 @@
 package com.by.ccs.model;
 
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableName;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -12,8 +14,10 @@ import java.util.Date;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@TableName(value = "user")
 public class User {
     @ApiModelProperty(value = "用户id")
+    @TableId
     private String id;
 
     @ApiModelProperty(value = "昵称")

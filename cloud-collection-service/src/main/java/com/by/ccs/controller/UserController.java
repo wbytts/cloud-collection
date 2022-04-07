@@ -1,7 +1,10 @@
 package com.by.ccs.controller;
 
+import com.baomidou.mybatisplus.core.metadata.IPage;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.by.ccs.model.Response;
 import com.by.ccs.model.User;
+import com.by.ccs.page.PageResponseVo;
 import com.by.ccs.service.UserService;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -22,10 +25,11 @@ public class UserController {
 
     @ApiOperation(value = "查询所有用户")
     @GetMapping("/queryAll")
-    public List<User> queryAllUsers() {
-        return userService.queryAllUser();
+    public IPage<User> queryAllUsers() {
+        User user = new User();
+        IPage<User> userIPage = userService.queryAllUser(user);
+        return userIPage;
     }
-
 
 
 }

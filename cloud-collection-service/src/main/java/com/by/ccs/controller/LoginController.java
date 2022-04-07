@@ -20,7 +20,7 @@ import java.util.Map;
 @RestController
 public class LoginController {
 
-    @Autowired
+      @Autowired
     private UserService userService;
 
     @ApiOperation(value = "登录")
