@@ -1,14 +1,17 @@
-﻿import adminService from '../service/adminService'
-import { Context } from 'koa'
-import { sign } from '../utils/auth'
-import responseUtil from '../utils/responseUtil'
+﻿import { Context } from 'koa';
+import { sign } from '../utils/auth';
+import userService from '../service/userService';
+import responseUtil from '../utils/responseUtil';
 
 class LoginController {
-  async index(ctx: Context) {
-    const admin = await adminService.getAdmin()
-    const token = sign(admin)
-    responseUtil.success(ctx, { token })
+  async login(ctx: Context) {
+    const user = await userService.getUser();
+    const token = sign(user);
+    responseUtil.success(ctx, { token });
+  }
+  async register(ctx: Context) {
+    responseUtil.success(ctx, { msg: '注册成功' });
   }
 }
 
-export default new LoginController()
+export default new LoginController();

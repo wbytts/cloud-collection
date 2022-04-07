@@ -22,7 +22,7 @@ function authMiddleware(ctx: Context, next: Next) {
     }
   } else {
     // 没传过来 token
-    ctx.body = { message: 'authorization不可以为空', result: false, code: 1000 }
+    ctx.body = { message: '请先登录', result: false, code: 1000 }
   }
 }
 
