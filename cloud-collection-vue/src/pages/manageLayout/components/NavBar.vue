@@ -15,7 +15,7 @@ export default {};
   padding-left: 20px;
   overflow: hidden;
   position: relative;
-  background: #fff;
+  background: $nav-bar-bg;
   box-shadow: 0 1px 4px rgba(0, 21, 41, 0.08);
 }
 </style>
