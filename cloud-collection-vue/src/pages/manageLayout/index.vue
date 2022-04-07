@@ -98,6 +98,7 @@ export default {
 
   .manage-main-container {
     overflow: hidden;
+    background-color: #ccc;
     .manage-main-top {
       height: 50px;
       .fixed-header {

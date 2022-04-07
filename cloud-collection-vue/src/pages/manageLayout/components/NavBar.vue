@@ -1,5 +1,5 @@
 ﻿<template>
-  <div class="nav-bar">导航栏</div>
+  <div class="nav-bar">导航栏导航栏导航栏导航栏导航栏导航栏导航栏导航栏导航栏导航栏导航栏导航栏</div>
 </template>
 
 <script>
@@ -7,8 +7,12 @@ export default {};
 </script>
 
 <style lang="scss" scoped>
+@import '~@/styles/variables.scss';
+
 .nav-bar {
-  height: 50px;
+  height: $nav-bar-height;
+  line-height: $nav-bar-height;
+  padding-left: 20px;
   overflow: hidden;
   position: relative;
   background: #fff;

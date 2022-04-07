@@ -1,5 +1,7 @@
 ﻿<template>
-  <div class="manage-main">页面主体</div>
+  <div class="manage-main">
+    <div class="manage-main-view"></div>
+  </div>
 </template>
 
 <script>
@@ -14,10 +16,18 @@ export default {};
   /* width: 100%; */
   position: relative;
   overflow: hidden;
+  /* background-color: #fff; */
+  /* border: 1px solid red; */
+  .manage-main-view {
+    background-color: #fff;
+    width: 100%;
+    height: calc(100vh - $nav-bar-height - $tags-view-height);
+    margin: 0 auto;
+  }
 }
 
 .fixed-header + .manage-main {
-  padding-top: 50px;
+  padding-top: $tags-view-height;
 }
 
 </style>
