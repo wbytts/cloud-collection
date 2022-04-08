@@ -12,7 +12,7 @@ function authMiddleware(ctx: Context, next: Next) {
     return next();
   }
   if (token !== undefined && token !== '') {
-    // 传过来了token
+    // 传过来了token，则验证token的有效性
     const result = verify(token);
     if (result.error !== null) {
       // token 有问题
