@@ -1,7 +1,15 @@
 ﻿import { Context } from 'koa';
+import User from '../model/user';
 import responseUtil from '../utils/responseUtil';
 
 class UserController {
+  /**
+   * 查询所有用户
+   */
+  async queryAllUser(ctx: Context) {
+    let users = await User.findAll();
+    responseUtil.success(ctx, { users }, '查询成功');
+  }
   /**
    * 分页查询用户列表
    */

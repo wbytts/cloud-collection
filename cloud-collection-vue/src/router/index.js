@@ -79,6 +79,11 @@ export function createRouter() {
       return;
     }
 
+    if(token && to.name == 'loginPage') {
+      next({name: 'manageHome'})
+      return ;
+    }
+
     // 如果不是以上情形，则默认跳转
     next();
   });
