@@ -1,6 +1,7 @@
 ﻿import { Sequelize } from 'sequelize-typescript';
 import config from '../config';
 import path from 'path';
+import { dbLogger } from '../logger';
 
 const sequelize = new Sequelize(
   config.db.name as string, // 数据库名称
@@ -20,6 +21,14 @@ const sequelize = new Sequelize(
       deletedAt: 'deleted_at',
       freezeTableName: true, // 防止sequelize将表名复数化
     },
+    // 选择一种日志记录参数
+    // logging: console.log, // 默认值,显示日志函数调用的第一个参数
+    // logging: (...msg) => console.log(msg), // 显示所有日志函数调用参数
+    // logging: false, // 禁用日志记录
+    // logging: msg => logger.debug(msg), // 使用自定义记录器(例如Winston 或 Bunyan),显示第一个参数
+    // logging: logger.debug.bind(logger), // 使用自定义记录器的另一种方法,显示所有消息
+    // logging: msg => dbLogger.info(msg),
+    logging: msg => console.log('【数据库日志】=> ' + msg),
   }
 );
 

@@ -6,4 +6,5 @@ const defaultLogger = getLogger()
 
 export const accessLogger = getLogger('access')
 export const commonLogger = getLogger('common')
+export const dbLogger = getLogger('db')
 export default defaultLogger
