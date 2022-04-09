@@ -21,7 +21,7 @@
           </el-form>
           <el-button type="primary" @click="doLogin">登陆</el-button>
           <div class="footer">
-            <span><input type="checkbox" id="remember" /><label for="remember">记住我</label></span>
+            <span><input type="checkbox" id="remember" v-model="isRemeber" /><label for="remember">记住我</label></span>
             <a @click="toRegiste()">注册</a>
             <a>忘记密码</a>
           </div>
@@ -38,6 +38,7 @@ import loginApi from '@/api/login.js';
 export default {
   data() {
     return {
+      isRemeber: false,
       form: {
         username: '',
         password: '',
@@ -59,17 +60,30 @@ export default {
       let res = await loginApi.login(this.form);
       console.log('登录结果', res);
       if (res.result) {
-        localStorage.setItem('token', res.data);
-        this.$message.success(res.message);
+        localStorage.setItem('token', res.data.token);
+        this.$message.success(res.msg);
         // 登陆成功之后，跳转管理页面首页
         this.$router.push({name: 'manageHome'})
       } else {
-        this.$message.error(res.message);
+        this.$message.error(res.msg);
       }
     },
     toRegister() {
       this.$router.push('/register');
     },
+  },
+  mounted() {
+    this.isRemeber = localStorage.getItem('remeber') || false
+    this.form = JSON.parse(localStorage.getItem('loginForm')) || {username: '', password: ''}
+
+    this.$watch(
+      'isRemeber',
+      (newVal, oldVal) => {
+        localStorage.setItem('remeber', newVal);
+        localStorage.setItem('loginForm', JSON.stringify(this.form));
+      },
+      // { immediate: true},
+    );
   },
 };
 </script>

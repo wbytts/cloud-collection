@@ -6,7 +6,7 @@ import { whiteList } from '../config';
  * 权限过滤中间件
  */
 function authMiddleware(ctx: Context, next: Next) {
-  const token = ctx.headers['authorization'];
+  const token = ctx.req.headers['token']?.toString()
   // 白名单中的接口、以test开头的接口，不进行token验证
   if (whiteList.includes(ctx.path) || ctx.path.startsWith('/test')) {
     return next();
@@ -23,7 +23,7 @@ function authMiddleware(ctx: Context, next: Next) {
     }
   } else {
     // 没传过来 token
-    ctx.body = { message: '请先登录', result: false, code: 1000 };
+    ctx.body = { message: '请先登录', result: false, code: 10086 };
   }
 }
 

@@ -7,10 +7,11 @@ const router = new KoaRouter({ prefix: '' })
 
 
 // 登录注册
-router.get('/admin/login', loginController.login)
+router.post('/login', loginController.login)
 
 // 用户管理
 router.get('/queryUserById', userController.queryUserById)
+router.post('/user/queryAll', userController.queryAllUser)
 
 // 临时接口测试
 router.get('/test', testController.index)
