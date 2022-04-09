@@ -1,5 +1,6 @@
 ﻿import { Context } from 'koa';
 import User from '../model/user';
+import pageUtil from '../utils/pageUtil';
 import responseUtil from '../utils/responseUtil';
 
 class UserController {
@@ -13,7 +14,11 @@ class UserController {
   /**
    * 分页查询用户列表
    */
-  async queryUserPage(ctx: Context) {}
+  async queryUserPage(ctx: Context) {
+    let { nowPage, pageSize } = ctx.request.body;
+    let {count: total, rows: users} = await User.findAndCountAll(pageUtil.getOffsetAndLimit(nowPage, pageSize));
+    responseUtil.success(ctx, { users, total }, '查询成功');
+  }
   /**
    * 根据用户id查询用户信息
    */

@@ -79,6 +79,7 @@ export function createRouter() {
       return;
     }
 
+    // 如果已经登录，并且跳转的是登录页，则跳转到管理首页
     if(token && to.name == 'loginPage') {
       next({name: 'manageHome'})
       return ;
