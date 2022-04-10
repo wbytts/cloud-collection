@@ -22,6 +22,10 @@ public class Role {
      * 角色
      */
     private String roleName;
+    /**
+     * 角色类型
+     */
+    private Integer roleType;
 
     private Date genTime;
 

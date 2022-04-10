@@ -1,19 +1,13 @@
 package com.by.ccs.controller;
 
-import com.baomidou.mybatisplus.core.metadata.IPage;
-import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.by.ccs.model.Response;
 import com.by.ccs.model.User;
-import com.by.ccs.page.PageResponseVo;
 import com.by.ccs.service.UserService;
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.metadata.IPage;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
-
-import java.util.List;
-import java.util.Map;
 
 @Api(tags = "用户管理")
 @RestController
@@ -29,6 +23,19 @@ public class UserController {
         User user = new User();
         IPage<User> userIPage = userService.queryAllUser(user);
         return userIPage;
+    }
+
+
+    @ApiOperation(value = "编辑用户信息")
+    @RequestMapping("/update")
+    public User UpdateUser(User user){
+
+        UpdateWrapper<User> updateWrapper = new UpdateWrapper<>();
+        updateWrapper.eq("user_name","小壹");
+        User users = new User();
+        user.setPassword("1234");
+        userService.update(user, updateWrapper);
+        return  user;
     }
 
 

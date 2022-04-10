@@ -2,6 +2,7 @@ package com.by.ccs.model;
 
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.by.css.model.BaseEntity;
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
 import lombok.AllArgsConstructor;
@@ -15,7 +16,7 @@ import java.util.Date;
 @AllArgsConstructor
 @NoArgsConstructor
 @TableName(value = "user")
-public class User {
+public class User extends BaseEntity {
     @ApiModelProperty(value = "用户id")
     @TableId
     private String id;
@@ -44,16 +45,16 @@ public class User {
     @ApiModelProperty(value = "用户状态")
     private Integer status;
 
-    @ApiModelProperty(value = "创建者id")
-    private Long createId;
-
-    @ApiModelProperty(value = "创建时间")
-    private Date createTime;
-
-    @ApiModelProperty(value = "修改id")
-    private Long updateId;
-
-    @ApiModelProperty(value = "修改时间")
-    private Date updateTime;
+//    @ApiModelProperty(value = "创建者id")
+//    private Long createId;
+//
+//    @ApiModelProperty(value = "创建时间")
+//    private Date createTime;
+//
+//    @ApiModelProperty(value = "修改id")
+//    private Long updateId;
+//
+//    @ApiModelProperty(value = "修改时间")
+//    private Date updateTime;
 
 }

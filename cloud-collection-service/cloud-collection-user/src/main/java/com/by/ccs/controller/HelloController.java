@@ -2,9 +2,9 @@ package com.by.ccs.controller;
 
 import com.by.ccs.mapper.TestMapper;
 import com.by.ccs.mapper.UserMapper;
-
-import com.by.ccs.model.User;
 import com.by.ccs.model.Test;
+import com.by.ccs.model.User;
+
 import io.swagger.annotations.Api;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
