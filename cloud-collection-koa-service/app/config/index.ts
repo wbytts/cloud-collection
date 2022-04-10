@@ -19,11 +19,13 @@ const config = {
       default: { type: 'file', filename: './logs/default.log' },
       common: { type: 'file', filename: './logs/common.log' },
       access: { type: 'file', filename: './logs/access.log' },
+      db: { type: 'file', filename: './logs/db.log' },
     },
     categories: {
       default: { appenders: ['default'], level: 'info' },
       common: { appenders: ['common'], level: 'trace' },
       access: { appenders: ['access'], level: 'info' },
+      db: { appenders: ['db'], level: 'DEBUG' },
     },
   },
   jwt: {
@@ -39,4 +41,3 @@ export const whiteList = [
   '/login', // 登录接口
   '/register', // 注册接口
 ];
-
