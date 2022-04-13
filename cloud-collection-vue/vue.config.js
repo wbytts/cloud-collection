@@ -10,7 +10,7 @@ module.exports = defineConfig({
     port: 9090, // 前端开发服务器运行的端口
     proxy: {
       '/api': {
-        target: koaServer, // 真实的后端地址
+        target: springbootServer, // 真实的后端地址
         pathRewrite: { '^/api': '' },
       },
     },

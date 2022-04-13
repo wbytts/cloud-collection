@@ -142,7 +142,7 @@ export default {
 .footer {
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: space-between;            
   margin-top: 20px;
   color: rgb(12, 12, 12);
 
