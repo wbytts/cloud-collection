@@ -17,7 +17,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @ApiOperation(value = "查询所有用户")
+    @ApiOperation(value = "查询所有用户分页")
     @GetMapping("/queryAll")
     public IPage<User> queryAllUsers() {
         User user = new User();
@@ -26,17 +26,14 @@ public class UserController {
     }
 
 
-    @ApiOperation(value = "编辑用户信息")
-    @RequestMapping("/update")
-    public User UpdateUser(User user){
-
-        UpdateWrapper<User> updateWrapper = new UpdateWrapper<>();
-        updateWrapper.eq("user_name","小壹");
-        User users = new User();
-        user.setPassword("1234");
-        userService.update(user, updateWrapper);
-        return  user;
+    @ApiOperation(value = "根据用户Id修改用户信息")
+    @GetMapping("/update")
+    public String update() {
+        User user = new User("06","张三","123456","aaa",1,"123456","123","1234",1);
+        String userId = userService.UpdateUser(user);
+        return userId;
     }
+
 
 
 }

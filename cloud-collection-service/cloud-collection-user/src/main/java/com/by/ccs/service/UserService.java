@@ -1,5 +1,6 @@
 package com.by.ccs.service;
 
+import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
 import com.by.ccs.mapper.UserMapper;
 import com.by.ccs.model.User;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
@@ -7,10 +8,12 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.by.css.exception.BaseException;
 import com.github.xiaoymin.knife4j.core.util.StrUtil;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -61,6 +64,17 @@ public class UserService extends ServiceImpl<UserMapper, User> {
         return user;
     }
 
+
+    public String UpdateUser(User user){   //调用selectid 方法，然后更新，最后判断
+         // 根据用户ID修改用户
+        try{
+            int i = userMapper.updateById(user);
+        }catch (Exception e){
+            throw new BaseException("修改用户信息失败");
+        }
+
+        return user.getId();
+    }
 
 
 
