@@ -7,10 +7,11 @@ export default {
   },
   // 分页查询用户信息
   queryUserPage(params) {
-    return service({
-      url: '/user/queryPage',
-      method: 'post',
-      data: params,
-    });
+    // return service({
+    //   url: '/user/queryPage',
+    //   method: 'post',
+    //   data: params,
+    // });
+    return service.post('/user/queryPage', params)
   },
 };

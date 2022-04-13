@@ -12,10 +12,12 @@ router.post('/login', loginController.login)
 // 用户管理
 router.get('/queryUserById', userController.queryUserById)
 router.post('/user/queryAll', userController.queryAllUser)
+router.post('/user/queryPage', userController.queryUserPage)
 
 // 临时接口测试
 router.get('/test', testController.index)
 router.get('/test/allUser', testController.findAllUser)
+
 
 
 export default router
