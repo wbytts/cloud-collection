@@ -18,7 +18,6 @@ class LoginController {
     } else {
       responseUtil.error(ctx, null, "用户名不存在")
     }
-    
   }
   async register(ctx: Context) {
     responseUtil.success(ctx, { msg: '注册成功' });
